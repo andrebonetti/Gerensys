@@ -1,0 +1,18 @@
+
+Servidor: gerensys.dyndns.org
+Banco:    v_automac
+Tabela:   site
+
+contato                       varchar(40)                        
+telefone                      varchar(20)                        
+empresa                       varchar(45)                        
+segmento                      varchar(40)                        
+bairro                        varchar(30)                        
+cidade                        varchar(30)                        
+uf                            varchar(2)                         
+e_mail                        varchar(60)     e-mail do contato                   
+site                          varchar(60)                        
+assunto                       text            Conteúdo da caixa de texto
+data                          date            Gravar a data corrente    
+status                        tinyint(3)      Gravar 0 (zero)
+
