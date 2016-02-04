@@ -1,34 +1,27 @@
 <?php
 	class Conteudo_model extends CI_Model {
         
-        function get(){
+        function lista(){
 			return $this->db->get("conteudo")->result_array();
 		}
         
-        function get_container($IdContainer){
-            /*WHERE*/$this->db->where("IdContainer",$IdContainer);  
+        function lista_Tipo($IdTipo,$IdSub_Tipo = null,$IdSub_Tipo2 = null){
+            /*WHERE*/$this->db->where("IdTipo",$IdTipo); 
+            
+            if($IdSub_Tipo != null){
+                /*WHERE*/$this->db->where("IdSub_Tipo",$IdSub_Tipo); 
+            }
+            if($IdSub_Tipo2 != null){
+                /*WHERE*/$this->db->where("IdSub_Tipo2",$IdSub_Tipo2); 
+            }
+            
             /*ORDER*/$this->db->order_by("Ordem", "ASC"); 
 			return $this->db->get("conteudo")->result_array();
 		}
 		
-		function get_where($id){
+		function busca($id){
 			/*WHERE*/$this->db->where("Id",$id);
 			return $this->db->get("conteudo")->row_array();
-		}
-        
-        function get_modulos($titulo){
-            /*WHERE*/$this->db->where("IdContainer",10);  
-            /*WHERE*/$this->db->where("Titulo",$titulo);  
-            /*ORDER*/$this->db->order_by("Ordem", "ASC"); 
-			return $this->db->get("conteudo")->result_array();
-		}
-        
-        function get_modulos_titulos(){
-            /*DISTINCT*/$this->db->distinct();
-            /*SELECT*/$this->db->select("Titulo");
-            /*WHERE*/$this->db->where("IdContainer",10);  
-            /*ORDER*/$this->db->order_by("Titulo", "ASC"); 
-			return $this->db->get("conteudo")->result_array();
 		}
         
     }

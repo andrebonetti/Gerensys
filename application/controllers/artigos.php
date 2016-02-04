@@ -5,13 +5,13 @@
         /*--- DESCRICAO DO ARTIGO ---*/
 		public function Descricao($id){	
           
-        /*----------------CONTEUDO DO BANCO DE DADOS-------------------------*/    
-        $artigos                =   $this->Conteudo_model->get_where($id);    
-        $produtos_integrados    =   $this->Conteudo_model->get_container(2);  
-        $conteudo_slide         =   $this->Conteudo_model->get_container(1);  
+        /*----------------CONTEUDO DO BANCO DE DADOS-------------------------*/               
+        $produtos_integrados    =   $this->Conteudo_model->get_tipo(2);  
+        $conteudo_slide         =   $this->Conteudo_model->get_tipo(1); 
+        $objetivos              =   $this->Conteudo_model->get_tipo(5);    
         $implantacao            =   $this->Conteudo_model->get_where(10);  
         $manutencao             =   $this->Conteudo_model->get_where(11);
-        $objetivos              =   $this->Conteudo_model->get_container(5);    
+        $artigos                =   $this->Conteudo_model->get_where($id);    
                      
 		/*--------------------------CONTEUDO PARA TELA-----------------------*/
 		$content = array("atual_page"           => "artigos"

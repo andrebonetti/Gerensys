@@ -7,12 +7,22 @@
        
         <p><?=$sistema["Descricao"]?></p>
         
-        <p>Suas principais características são:</p>
+        <p class="titulo_container">Suas principais características são:</p>
             
         <ul>
         	<?php foreach($sistema_caracteristicas as $content){?>
                 <li>
-                    <?=$content["Descricao"]?>    
+                    <img src="<?=base_url("img/check.png")?>" class="checklist" alt="lista objetvos manutencao sistema"> <?=$content["Descricao"]?>    
+                </li>
+            <?php } ?>
+    	</ul>
+        
+        <p class="titulo_container">Homologado para as seguintes rotinas fiscais:</p>
+            
+        <ul>
+        	<?php foreach($sistema_homologacao as $content){?>
+                <li>
+                    <img src="<?=base_url("img/check.png")?>" class="checklist" alt="lista objetvos manutencao sistema"> <?=$content["Descricao"]?>    
                 </li>
             <?php } ?>
     	</ul>
@@ -20,294 +30,16 @@
        	<div class="modulos">
        	
             <p><?=$sistema["SubTitulo"]?></p>
-
-            <table class="no-phone">
-
-                        <tr class="cab" >
-                            <th class="rotulos titulo">Qual o Melhor Módulo do Sistema Para Você?</th>
-                            <th class="frente">Frente de Caixa</th>
-                            <th class="basico">Básico</th>
-                            <th class="avancado">Avançado</th>
-                        </tr>
-
-                        <?php 
-                        $cont = 0;
-                        $class = "";                       
-                        foreach($sistema_modulos_titulos as $titulo){?>
-                            
-                        <tr>
-                            <td class="titulo_modulo"><?=$titulo["Titulo"]?></td>
-                        </tr>
-                            
-                            <?php foreach($sistema_modulos[$titulo["Titulo"]] as $modulo){   
-                            
-                            if($cont % 2 == 0){$class = "line-1";}
-                            if($cont % 2 != 0){$class = "line-2";}
-                            
-                            $ClassModuloFrente = "";
-                            $ClassModuloBasico = "";
-                            $ClassModuloAvancado = "";
-                            
-                            if($modulo["ModuloFrenteCaixa"] == 1){$ClassModuloFrente = "ok-f";}else{}
-                            if($modulo["ModuloBasico"] == 1){$ClassModuloBasico = "ok-b";}
-                            if($modulo["ModuoAvancado"] == 1){$ClassModuloAvancado = "ok-a";}
-                        ?>
-                                <!--Frente de Caixa-->
-                                <tr class="<?=$class?>" >
-                                    <td class="rotulos"><?=$modulo["Descricao"]?></td>
-                                    <td class="<?=$ClassModuloFrente?>"></td>
-                                    <td class="<?=$ClassModuloBasico?>"></td>
-                                    <td class="<?=$ClassModuloAvancado?>"></td>
-                                </tr>
-                        <?php $cont++; }} ?>
-                
-                </table>      
-
-            <!-- PHONE -->          
-            <table class="only-phone">
-
-                        <tr class="cab" >
-                            <th class="rotulos titulo">Qual o Melhor Módulo do Sistema Para Você?</th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-
-                        <tr>
-                            <td></td>
-                            <td class="cab-phone"></td>
-                            <td class="cab-phone"></td>
-                            <td class="cab-phone"></td>
-                        </tr>
-
-                        <!--Frente de Caixa-->
-                        <tr class="line-1" >
-                            <td class="rotulos">Cadastro de produtos</td>
-                            <td class="ok-f"></td>
-                            <td class="ok-b"></td>
-                            <td class="ok-a"></td>
-                        </tr>
-
-                        <tr class="line-2" >
-                            <td class="rotulos">Cadastro de clientess</td>
-                            <td class="ok-f"></td>
-                            <td class="ok-b"></td>
-                            <td class="ok-a"></td>
-                        </tr>
-
-                        <tr class="line-1" >
-                            <td class="rotulos">Nota Fiscal Paulista</td>
-                            <td class="ok-f"></td>
-                            <td class="ok-b"></td>
-                            <td class="ok-a"></td>
-                        </tr>
-
-                        <tr class="line-2" >
-                            <td class="rotulos">Controle de movimentação de caixa</td>
-                            <td class="ok-f"></td>
-                            <td class="ok-b"></td>
-                            <td class="ok-a"></td>
-                        </tr>
-
-                        <tr class="line-1" >
-                            <td class="rotulos">Cadastro de usuários e suas permissões de uso</td>
-                            <td class="ok-f"></td>
-                            <td class="ok-b"></td>
-                            <td class="ok-a"></td>
-                        </tr>
-
-                        <!--Básico-->
-                        <tr class="line-2" >
-                            <td class="rotulos">Cadastro de serviços</td>
-                            <td></td>
-                            <td class="ok-b"></td>
-                            <td class="ok-a"></td>
-                        </tr>
-
-                        <tr class="line-1" >
-                            <td class="rotulos">Cadastro de fornecedores</td>
-                            <td></td>
-                            <td class="ok-b"></td>
-                            <td class="ok-a"></td>
-                        </tr>
-
-                        <tr class="line-2" >
-                            <td class="rotulos">Cadastro de transportadoras com vínculo ao cliente</td>
-                            <td></td>
-                            <td class="ok-b"></td>
-                            <td class="ok-a"></td>
-                        </tr>
-
-                        <tr class="line-1" >
-                            <td class="rotulos">Emissão de etiquetas de gôndola, código de barras, mala direta</td>
-                            <td></td>
-                            <td class="ok-b"></td>
-                            <td class="ok-a"></td>
-                        </tr>
-
-                        <tr class="line-2" >
-                            <td class="rotulos">Negociação de vendas por clientes e produtos (várias opções)</td>
-                            <td></td>
-                            <td class="ok-b"></td>
-                            <td class="ok-a"></td>
-                        </tr>
-
-                        <tr class="line-1" >
-                            <td class="rotulos">Múltiplas tabelas de preços de venda</td>
-                            <td></td>
-                            <td class="ok-b"></td>
-                            <td class="ok-a"></td>
-                        </tr>
-
-                        <tr class="line-2" >
-                            <td class="rotulos">Pedido de compra e recebimento de produtos</td>
-                            <td></td>
-                            <td class="ok-b"></td>
-                            <td class="ok-a"></td>
-                        </tr>
-
-                        <tr class="line-1" >
-                            <td class="rotulos">Contas a pagar e receber</td>
-                            <td></td>
-                            <td class="ok-b"></td>
-                            <td class="ok-a"></td>
-                        </tr>
-
-                        <tr class="line-2" >
-                            <td class="rotulos">Controle de estoque</td>
-                            <td></td>
-                            <td class="ok-b"></td>
-                            <td class="ok-a"></td>
-                        </tr>
-
-                        <tr class="line-1" >
-                            <td class="rotulos">Fórmulas de produção e desmembramento, operações automáticas e manuais</td>
-                            <td></td>
-                            <td class="ok-b"></td>
-                            <td class="ok-a"></td>
-                        </tr>
-
-                        <tr class="line-2" >
-                            <td class="rotulos">Controle de vendas a funcionários</td>
-                            <td></td>
-                            <td class="ok-b"></td>
-                            <td class="ok-a"></td>
-                        </tr>
-
-                        <tr class="line-1" >
-                            <td class="rotulos">Recebimento de produtos através dos arquivos em XML</td>
-                            <td></td>
-                            <td class="ok-b"></td>
-                            <td class="ok-a"></td>
-                        </tr>
-
-                        <tr class="line-2" >
-                            <td class="rotulos">Integração Consulta SERASA</td>
-                            <td></td>
-                            <td class="ok-b"></td>
-                            <td class="ok-a"></td>
-                        </tr>
-
-                        <!--Avançado-->
-                        <tr class="line-1" >
-                            <td class="rotulos">Emissão de Nota Fiscal Eletrônica de Vendas de Produtos</td>
-                            <td></td>
-                            <td></td>
-                            <td class="ok-a"></td>
-                        </tr>
-
-                        <tr class="line-2" >
-                            <td class="rotulos">Emissão de Nota Fiscal Eletrônica de Serviços</td>
-                            <td></td>
-                            <td></td>
-                            <td class="ok-a"></td>
-                        </tr>
-
-                         <tr class="line-1" >
-                            <td class="rotulos"> Emissão de Nota Fiscal de Importação</td>
-                            <td></td>
-                            <td></td>
-                            <td class="ok-a"></td>
-                        </tr>
-
-                        <tr class="line-2" >
-                            <td class="rotulos">Inserção de fotos em cadastro de produtos</td>
-                            <td></td>
-                            <td></td>
-                            <td class="ok-a"></td>
-                        </tr>
-
-                         <tr class="line-1" >
-                            <td class="rotulos">Envio de orçamentos, pedidos e tabelas de preços por e-mail</td>
-                            <td></td>
-                            <td></td>
-                            <td class="ok-a"></td>
-                        </tr>
-
-                        <tr class="line-2" >
-                            <td class="rotulos">Controle de trocas de mercadorias com fornecedores</td>
-                            <td></td>
-                            <td></td>
-                            <td class="ok-a"></td>
-                        </tr>
-
-                         <tr class="line-1" >
-                            <td class="rotulos">Controle de despesas fixas, avulsas e fluxo de caixa</td>
-                            <td></td>
-                            <td></td>
-                            <td class="ok-a"></td>
-                        </tr>
-
-                        <tr class="line-2" >
-                            <td class="rotulos">Cálculo de comissões</td>
-                            <td></td>
-                            <td></td>
-                            <td class="ok-a"></td>
-                        </tr>
-
-                         <tr class="line-1" >
-                            <td class="rotulos">Controle de depósitos bancárioso</td>
-                            <td></td>
-                            <td></td>
-                            <td class="ok-a"></td>
-                        </tr>
-
-                        <tr class="line-2" >
-                            <td class="rotulos">Controle de devolução de cheque</td>
-                            <td></td>
-                            <td></td>
-                            <td class="ok-a"></td>
-                        </tr>
-
-                         <tr class="line-1" >
-                            <td class="rotulos">Controle especial das cotações em aberto</td>
-                            <td></td>
-                            <td></td>
-                            <td class="ok-a"></td>
-                        </tr>
-
-                        <tr class="line-2" >
-                            <td class="rotulos">Controle especial da expedição de produtos</td>
-                            <td></td>
-                            <td></td>
-                            <td class="ok-a"></td>
-                        </tr>
-
-                         <tr class="line-1" >
-                            <td class="rotulos">Vendas e compras em consignação</td>
-                            <td></td>
-                            <td></td>
-                            <td class="ok-a"></td>
-                        </tr>
-
-                        <tr class="line-2" >
-                            <td class="rotulos">Speed Fiscal</td>
-                            <td></td>
-                            <td></td>
-                            <td class="ok-a"></td>
-                        </tr>
-
-                </table>  
+            
+            <?php foreach($modulos as $modulo){?>
+            
+                <?php foreach($modulo as $tipo){?>
+            
+                    <?php foreach($tipo as $content){?>
+                        
+                        <?php var_dump($content) ?>
+            
+            <?php }}} ?>
 
         </div>
         

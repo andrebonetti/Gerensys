@@ -9,14 +9,14 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'gerensys.dyndns.org';
+/*$db['default']['hostname'] = 'gerensys.dyndns.org';
 $db['default']['username'] = 'root';
 $db['default']['password'] = '070396';
-$db['default']['database'] = 'gerensys_site';
-/*$db['default']['hostname'] = 'localhost';
+$db['default']['database'] = 'gerensys_site';*/
+$db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
 $db['default']['password'] = '';
-$db['default']['database'] = 'gerensys_site';*/
+$db['default']['database'] = 'gerensys_site';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;

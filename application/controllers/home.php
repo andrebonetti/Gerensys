@@ -4,14 +4,14 @@
         
 		public function index(){	
               
-        $conteudo_slide             =   $this->Conteudo_model->get_container(1);      
-        $produtos_integrados        =   $this->Conteudo_model->get_container(2);    
+        $conteudo_slide             =   $this->Conteudo_model->get_tipo(1);      
+        $produtos_integrados        =   $this->Conteudo_model->get_tipo(2);
+        $objetivos                  =   $this->Conteudo_model->get_tipo(5);     
+        $sistema_caracteristicas    =   $this->Conteudo_model->get_tipo(8);    
         $implantacao                =   $this->Conteudo_model->get_where(10);  
-        $manutencao                 =   $this->Conteudo_model->get_where(11);    
-        $objetivos                  =   $this->Conteudo_model->get_container(5);  
+        $manutencao                 =   $this->Conteudo_model->get_where(11);            
         $sistema                    =   $this->Conteudo_model->get_where(22);
-        $sistema_caracteristicas    =   $this->Conteudo_model->get_container(8); 
-            
+                    
 		/*--------------------------CONTENT----------------------------------*/
 		$content = array(
                          "atual_page"               => "home"

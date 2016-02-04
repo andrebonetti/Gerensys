@@ -46,4 +46,4 @@ $autoload['language'] = array();
 | -------------------------------------------------------------------
 */
 
-$autoload['model'] = array('crud_model','produtos_model','usuarios_model','Conteudo_model');
+$autoload['model'] = array('crud_model','produtos_model','usuarios_model','Conteudo_model','Tipo_model');
