@@ -26,20 +26,103 @@
                 </li>
             <?php } ?>
     	</ul>
+        
+        <?php /* <section class="ac-container">
+						
+            <!--MENU MED-->
+            <div>
+				<input id="ac-1" name="accordion-1" type="radio" checked />
+				<label for="ac-1">Medida</label>                    
+				<article class="ac-auto">
+				   Usuario
+Cadastro de usuários e senhas
+Controle de permissão e bloqueios de acesso às rotinas operacionais
+Produtos
+Cadastro de produtos
+Cadastro de códigos alternativos (possibilidade de vincular vários códigos para um mesmo produto).
+Geração de códigos de barras para produtos sem código.
+Produtos em promoções (diversas opções)
+Recursos facilitados para manutenção nos cadastros de produtos.
+Vendas
+Cadastro de cliente.s
+Parametrização de vendas (desconto, alterações, e etc.).
+Vendas em dinheiro, cartão de crédito e débito.
+Caixa
+Controle da movimentação do Caixa: Saldo inicial, entradas por forma de pagamento e suprimentos, saídas por cancelamentos e sangrias.
+Fiscal                   
+				</article>
+            </div>    
+            
+            <!--MENU CAT--> 
+            <div>	
+			     <input id="ac-2" name="accordion-1" type="radio" />
+				 <label for="ac-2">Veículo</label>
+				 <article class="ac-auto">
+                     TESTE 2
+				 </article>
+            </div>
+            
+            <!--MENU CAT--> 
+            <div>	
+			     <input id="ac-3" name="accordion-1" type="radio" />
+				 <label for="ac-3">Veículo</label>
+				 <article class="ac-auto">
+                     TESTE 3
+				 </article>
+            </div>
+									
+        </section>*/ ?>
+                
  
        	<div class="modulos">
        	
             <p><?=$sistema["SubTitulo"]?></p>
             
-            <?php foreach($modulos as $modulo){?>
-            
-                <?php foreach($modulo as $tipo){?>
-            
-                    <?php foreach($tipo as $content){?>
-                        
-                        <?php var_dump($content) ?>
-            
-            <?php }}} ?>
+            <section class="ac-container">
+				
+                <?php 
+                $count_modulo = 0;
+                $lista_modulos = array_keys($modulos);
+                foreach($modulos as $modulo){?>
+                    
+                    <div>
+                        <input id="ac-<?=$count_modulo?>" name="accordion-1" type="radio"/>
+                        <label for="ac-<?=$count_modulo?>"><h2><?= $lista_modulos[$count_modulo] ?> </h2></label> 
+                        <article class="ac-auto">
+                            
+                            
+                            <?php 
+                            $count_tipo = 0;
+                            $lista_tipo = array_keys($modulo);                 
+                            foreach($modulo as $tipo){?>
+
+                                <?php if(count($tipo) > 0){?>
+                                     
+                                    <h3><?= $lista_tipo[$count_tipo] ?></h3>
+                                    <?php foreach($tipo as $content){?>
+
+                                        <p><?=$content["Descricao"]?></p>
+
+                                    <?php } ?>
+
+                                <?php  } ?>
+                                
+                                <?php if($count_modulo == 5){?>
+                                    
+                                    <?php if(($count_tipo >= 15)&&($count_tipo <= 17)){?>
+                                        <h3><?php $lista_tipo[$count_tipo] ?></h3>
+                                    <?php } ?>
+                            
+                                <?php } ?>
+                            
+                            <?php $count_tipo++; } ?>
+                            
+                        </article>
+                    </div>
+                
+                <?php $count_modulo++; }  ?>        
+                
+            </section>    
 
         </div>
         

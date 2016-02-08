@@ -19,8 +19,8 @@
             
             <?php 
                 $pasta_Imagem = "";
-                if($artigo["IdContainer"] == 1){$pasta_Imagem = "Slide-Home";}
-                if($artigo["IdContainer"] == 2){$pasta_Imagem = "Produtos-Integrados";} 
+                if($artigo["IdTipo"] == 1){$pasta_Imagem = "Slide-Home";}
+                if($artigo["IdTipo"] == 2){$pasta_Imagem = "Produtos-Integrados";} 
             ?>
             
             <?php

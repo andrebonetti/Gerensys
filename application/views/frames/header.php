@@ -10,7 +10,7 @@
         <title> Gerensys- Automação Comercial </title>
                       
         <link rel="stylesheet" type="text/css" href="<?=base_url("css/bootstrap.css")?>">  
-        <link rel="stylesheet" type="text/css" href="<?=base_url("css/style.css")?>">    
+        <link rel="stylesheet" type="text/css" href="<?=base_url("css/style.css")?>">  
         <link rel="stylesheet/less" href="<?=base_url("less/style.less")?>">    
         
         <script src="<?=base_url("js/jquery-2.1.3.min.js")?>"></script>

@@ -4,7 +4,7 @@
         
 		public function index(){
             
-        $this->output->enable_profiler(true);
+        $this->output->enable_profiler(false);
             
         $implantacao                =   $this->Conteudo_model->busca(10);  
         $manutencao                 =   $this->Conteudo_model->busca(11);      
@@ -20,7 +20,7 @@
             foreach($lista_tipos_modulos as $tipo){
             
                 $modulos[$tipo["Descricao"]] = array();
-                
+
                 foreach($lista_subtipos_modulos as $subTipo){
                     
                     $modulos[$tipo["Descricao"]][$subTipo["Descricao"]] = array();
